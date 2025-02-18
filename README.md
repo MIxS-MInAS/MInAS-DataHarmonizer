@@ -106,26 +106,6 @@ The instructions for adding a **full schema** to this repo's DataHarmonizer inst
 
 This viewing interface should be updated on each MInAS release.
 
-### New template quick reference
-
-Example for the ancient extension
-
-```bash
-cd /web/templates/
-rm -r *
-mkdir mixs-extension-ancient
-cd mixs-extension-ancient
-echo "export default {};" > export.js
-wget https://github.com/MIxS-MInAS/extension-ancient/raw/refs/tags/v0.3.2/src/mixs/schema/ancient.yml
-## Add the dh_interface class to the file manually here to a file called 'dh_class_text.txt'!
-sed -i '/^classes:/r dh_class_text.txt' ancient.yml
-python3 ../../../script/linkml.py --input ancient.yml
-sed -i 's/"display": false/"display": true/g' ../menu.json
-## optionally test with `yarn dev`
-yarn build:web
-mv web/dist/ docs/
-```
-
 ## Original README
 
 A standardized browser-based spreadsheet editor and validator that can be run offline and locally, which works of of [LinkML](https://linkml.io/) data specifications. This open source project, created by the Centre for Infectious Disease Genomics and One Health (CIDGOH) at Simon Fraser University, is now a collaboration with contributions from the National Microbiome Data Collaborative (NMDC), the LinkML development team, and others. Read the open-source DataHarmonizer [manuscript](#manuscript) for more about the application's theory and design.
