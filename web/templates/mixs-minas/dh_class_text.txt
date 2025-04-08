@@ -5,8 +5,8 @@
   MInAS-checklists:
     name: MInAS-checklists
     description:
-      The Minimum Information about any Ancient Sequence (MInAS) project aims 
-      to develop standardised metadata reporting schemes of ancient DNA samples and 
+      The Minimum Information about any Ancient Sequence (MInAS) project aims
+      to develop standardised metadata reporting schemes of ancient DNA samples and
       sequencing data via community-based consensus and training.
       This checklist contains relevant aDNA MIxS combinations plus the ancient and
       radiocarbon extension
