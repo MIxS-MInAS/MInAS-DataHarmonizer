@@ -22,6 +22,12 @@ Some notes when doing such a sync:
   - Then re-run the instructions below to set up the MInAS DataHarmonizer instance, starting from scratch
 - Don't forget to run `yarn` in the root to make sure we get all the latest dependencies etc
 - Don't forget to port over the changes to the `web/index.html` HTML file with our header customisation
+- You will likely have a merge conflict when opening the PR - follow GitHub instructions then use this for easiest resolution
+
+  ```bash
+  git checkout --ours .
+  git add .
+  ```
 
 ### Schema preparation
 

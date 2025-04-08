@@ -1,25 +1,10 @@
 # MInAS - DataHarmonizer
 
-This repository is a fork of [DataHarmonizer](https://github.com/cidgoh/DataHarmonizer) ([Gill et al. 2023](https://doi.org/10.1099/mgen.0.000908)) but utilised to view and test the LinkML schemas of the [MInAS project](https://mixs-minas.org). 
+This repository is a fork of [DataHarmonizer](https://github.com/cidgoh/DataHarmonizer) ([Gill et al. 2023](https://doi.org/10.1099/mgen.0.000908)) but utilised to view and test the LinkML schemas of the [MInAS project](https://mixs-minas.org).
 
-The instructions for the updating of this fork are as follows:
+## New template instructions
 
-- Make new schema entry
-  - Delete the contents of `/web/templates/`
-  - Make a directory `/web/templates/[schema name]/` for each MInAS schema
-  - In each directory create `export.json` just containing `export default {};`
-  - For each schema, save a `schema.yaml` file in the directory, which is our schema, with an additional [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
-  - Generate the DataHarmonizer compatible JSON with `python ../../../script/linkml.py -i schema.yaml`
-  - Modify the `/web/templates/menu.json` so all `display: false` equals `display: true`
-- Test in a local web server
-  - [Install DataHarmonizer](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#prerequisites)
-  - Clone the repo
-  - Configure `corepack` so `yarn` works properly
-  - Run `yarn` to install dependencies
-- Generate the static files (within the local clone)
-  - Run `yarn build:web` to generate a standalone file (Stored in `/web/dist`)
-
-This viewing interface should be updated on each MInAS release.
+See [MIxS MInAS instructions](mixs-minas-instructions.md) for instructions on how to add a new template to this fork of DataHarmonizer.
 
 ## Original README
 
