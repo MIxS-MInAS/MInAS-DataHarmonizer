@@ -29,6 +29,8 @@ Some notes when doing such a sync:
   git add .
   ```
 
+- Rebuild `yarn build:dev` for safety
+
 ### Schema preparation
 
 The instructions for adding a **single extension** to this repo's DataHarmonizer instance:
