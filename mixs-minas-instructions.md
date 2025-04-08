@@ -31,6 +31,11 @@ Some notes when doing such a sync:
 
 - Rebuild `yarn build:dev` for safety
 
+## Notes on HTML editing
+
+- you want to edit the `web/index.html` file to customise the HTML interface around the DataHarmonizer table
+- Make sure to run `yarn format` before pushing
+
 ### Schema preparation
 
 The instructions for adding a **single extension** to this repo's DataHarmonizer instance:
@@ -125,6 +130,7 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 - Generate the static files (within the local clone) in `/web/dist`
 
   ```bash
+  yarn format ## for linting
   yarn build:web
   ```
 
