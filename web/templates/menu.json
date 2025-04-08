@@ -11,7 +11,177 @@
       "display": false
     }
   },
-  "minas-checklists": {
+  "mixs-minas": {
+    "MigsOrg": {
+      "name": "MigsOrg",
+      "status": "published",
+      "display": false
+    },
+    "Mimag": {
+      "name": "Mimag",
+      "status": "published",
+      "display": false
+    },
+    "Mims": {
+      "name": "Mims",
+      "status": "published",
+      "display": false
+    },
+    "Miuvig": {
+      "name": "Miuvig",
+      "status": "published",
+      "display": false
+    },
+    "HostAssociated": {
+      "name": "HostAssociated",
+      "status": "published",
+      "display": false
+    },
+    "HumanAssociated": {
+      "name": "HumanAssociated",
+      "status": "published",
+      "display": false
+    },
+    "HumanGut": {
+      "name": "HumanGut",
+      "status": "published",
+      "display": false
+    },
+    "HumanOral": {
+      "name": "HumanOral",
+      "status": "published",
+      "display": false
+    },
+    "HumanSkin": {
+      "name": "HumanSkin",
+      "status": "published",
+      "display": false
+    },
+    "PlantAssociated": {
+      "name": "PlantAssociated",
+      "status": "published",
+      "display": false
+    },
+    "Sediment": {
+      "name": "Sediment",
+      "status": "published",
+      "display": false
+    },
+    "Soil": {
+      "name": "Soil",
+      "status": "published",
+      "display": false
+    },
+    "SymbiontAssociated": {
+      "name": "SymbiontAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MixsCompliantData": {
+      "name": "MixsCompliantData",
+      "status": "published",
+      "display": false
+    },
+    "MigsOrgHostAssociated": {
+      "name": "MigsOrgHostAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MigsOrgHumanAssociated": {
+      "name": "MigsOrgHumanAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimagHostAssociated": {
+      "name": "MimagHostAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimagHumanAssociated": {
+      "name": "MimagHumanAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimagHumanGut": {
+      "name": "MimagHumanGut",
+      "status": "published",
+      "display": false
+    },
+    "MimagHumanOral": {
+      "name": "MimagHumanOral",
+      "status": "published",
+      "display": false
+    },
+    "MimagHumanSkin": {
+      "name": "MimagHumanSkin",
+      "status": "published",
+      "display": false
+    },
+    "MimagSediment": {
+      "name": "MimagSediment",
+      "status": "published",
+      "display": false
+    },
+    "MimagSoil": {
+      "name": "MimagSoil",
+      "status": "published",
+      "display": false
+    },
+    "MimsHostAssociated": {
+      "name": "MimsHostAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanAssociated": {
+      "name": "MimsHumanAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanGut": {
+      "name": "MimsHumanGut",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanOral": {
+      "name": "MimsHumanOral",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanSkin": {
+      "name": "MimsHumanSkin",
+      "status": "published",
+      "display": false
+    },
+    "MimsPlantAssociated": {
+      "name": "MimsPlantAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimsSediment": {
+      "name": "MimsSediment",
+      "status": "published",
+      "display": false
+    },
+    "MimsSoil": {
+      "name": "MimsSoil",
+      "status": "published",
+      "display": false
+    },
+    "MimsSymbiontAssociated": {
+      "name": "MimsSymbiontAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MiuvigHostAssociated": {
+      "name": "MiuvigHostAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MiuvigHumanAssociated": {
+      "name": "MiuvigHumanAssociated",
+      "status": "published",
+      "display": false
+    },
     "Ancient": {
       "name": "Ancient",
       "status": "published",
