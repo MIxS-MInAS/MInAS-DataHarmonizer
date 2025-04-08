@@ -108,7 +108,7 @@ export default {
         'sequenced_by_contact_name',
       ];
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       const sourceFieldTitleMap = dh.getFieldTitleMap(sourceFields);
 
@@ -310,8 +310,6 @@ export default {
         sourceFieldNameMap,
         'GRDI'
       );
-
-      console.log(dataRow, ruleSourceFieldNames, RuleDB, sourceFields,sourceFieldNameMap); 
 
       // So all rule field values can be referenced in lower case.
       for (let sourceField of Object.keys(RuleDB)) {

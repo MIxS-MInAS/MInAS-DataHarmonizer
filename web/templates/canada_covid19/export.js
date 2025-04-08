@@ -80,7 +80,7 @@ export default {
         'Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)': 'RRPL-SK',
       };
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'VirusSeq_Portal');
@@ -242,7 +242,7 @@ export default {
         ['diagnostic_PCR_CT_value_2', []],
       ]);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'BIOSAMPLE');
@@ -353,7 +353,7 @@ export default {
         'covv_authors',
       ];
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
 
       dh.getHeaderMap(ExportHeaders, sourceFields, 'GISAID');
@@ -392,7 +392,6 @@ export default {
               mappedCellVal = 'Virus passage';
             }
 
-            console.log(field.name,field)
             // All null values should be converted to "Unknown"
             if (field.dataStatus) {
               const standardizedDataStatus = field.dataStatus.map((val) =>
@@ -547,7 +546,7 @@ export default {
 
       ]);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       const sourceFieldTitleMap = dh.getFieldTitleMap(sourceFields);
       
