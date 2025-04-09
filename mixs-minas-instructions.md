@@ -116,20 +116,19 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 
   - (Manually) Delete everything that you don't want in `menu.json`
 
-    - basically remove every entry EXCEPT Ancient, RadiocarbonDating, and any combination with `Ancient`
-    - Set everything relevant to `true`
+        - basically remove every entry EXCEPT Ancient, RadiocarbonDating, and any combination with `Ancient`
 
-    ```bash
-    ## Only activated ones we are interested in
-    ## This works by finding the first string, then in the replacement pattern skip two lines (N;), then perform the actual replacement
+        ```bash
+        ## Only activated ones we are interested in
+        ## This works by finding the first string, then in the replacement pattern skip two lines (N;), then perform the actual replacement
 
-    sed -i "/Ancient\"\,/{N;N;s/false/true/g}" ../menu.json
-    sed -i "/RadiocarbonDating\"\,/{N;N;s/false/true/g}" ../menu.json
-    ```
+        sed -i "/Ancient\"\,/{N;N;s/false/true/g}" ../menu.json
+        sed -i "/RadiocarbonDating\"\,/{N;N;s/false/true/g}" ../menu.json
+        ```
 
-    > [!WARNING]
-    > This seems to be a regression, where if you don't have the first entry in the `menu.json` set to `true` then the whole thing breaks
-    > Hopefully will be fixed in the future
+        > [!WARNING]
+        > This seems to be a regression, where if you don't have the first entry in the `menu.json` set to `true` then the whole thing breaks
+        > Hopefully will be fixed in the future
 
 ### Testing the DataHarmonizer instance
 

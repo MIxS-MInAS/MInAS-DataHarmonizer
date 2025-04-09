@@ -230,12 +230,19 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-
 # JS
 node_modules/
 
 # Visual Studio
 .vscode/
 
-.notes/
+# Project build artifacts
 web/templates/manifest.json
+
+# Miscellaneous
+.local/
+.notes/
+.jj/
+
+# deprecated modules
+lib/utils/1m_dep.js
