@@ -1,4 +1,12 @@
-# DataHarmonizer
+# MInAS - DataHarmonizer
+
+This repository is a fork of [DataHarmonizer](https://github.com/cidgoh/DataHarmonizer) ([Gill et al. 2023](https://doi.org/10.1099/mgen.0.000908)) but utilised to view and test the LinkML schemas of the [MInAS project](https://mixs-minas.org).
+
+## New template instructions
+
+See [MIxS MInAS instructions](mixs-minas-instructions.md) for instructions on how to add a new template to this fork of DataHarmonizer.
+
+# Original README
 
 A standardized browser-based spreadsheet editor and validator that can be run offline and locally, which works of of [LinkML](https://linkml.io/) data specifications. This open source project, created by the Centre for Infectious Disease Genomics and One Health (CIDGOH) at Simon Fraser University, is now a collaboration with contributions from the National Microbiome Data Collaborative (NMDC), the LinkML development team, and others. Read the open-source DataHarmonizer [manuscript](#manuscript) for more about the application's theory and design.
 
