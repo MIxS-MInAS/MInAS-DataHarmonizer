@@ -6,7 +6,7 @@ This repository is a fork of [DataHarmonizer](https://github.com/cidgoh/DataHarm
 
 See [MIxS MInAS instructions](mixs-minas-instructions.md) for instructions on how to add a new template to this fork of DataHarmonizer.
 
-## Original README
+# Original README
 
 A standardized browser-based spreadsheet editor and validator that can be run offline and locally, which works of of [LinkML](https://linkml.io/) data specifications. This open source project, created by the Centre for Infectious Disease Genomics and One Health (CIDGOH) at Simon Fraser University, is now a collaboration with contributions from the National Microbiome Data Collaborative (NMDC), the LinkML development team, and others. Read the open-source DataHarmonizer [manuscript](#manuscript) for more about the application's theory and design.
 
@@ -48,10 +48,10 @@ The default template loaded is the "CanCOGeN Covid-19" template. To change the s
 
 A second way to access templates directly, rather than by the hard-coded menu system, is to specify the DataHarmonizer template subfolder via a "template" URL parameter. This enables development and use of customized templates, or new ones, that DH doesn't have programmed in menu.  
 
-For example, when running
-http://genepio.org/DataHarmonizer/main.html?template=gisaid/GISAID accesses the /template/gisaid/ subfolder's template directly.  
+For example,
+http://genepio.org/DataHarmonizer/main.html?template=gisaid accesses the /template/gsiaid/ subfolder's template directly.  
 
-See more on the Wiki [DataHarmonizer templates](https://github.com/cidgoh/DataHarmonizer/wiki/DataHarmonizer-Templates) page.
+See more on the Wiki [DataHarmonizer templates](https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki/DataHarmonizer-Templates) page.
 
 ## Usage
 

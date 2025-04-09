@@ -11,6 +11,9 @@
 
 ## Notes on upstream syncing
 
+> [!WARNING]
+> DataHarmonizer >1.6.5 will have different instructions! E.g. the use of `-m` with `linkml.py` is now required to generate the `menu.json` file correctly
+
 Syncing with the upstream DataHarmonizer repository can be a bit tricky as it seems it's a sort of 'production' repository.
 
 Some notes when doing such a sync:
@@ -22,6 +25,8 @@ Some notes when doing such a sync:
   - Then re-run the instructions below to set up the MInAS DataHarmonizer instance, starting from scratch
 - Don't forget to run `yarn` in the root to make sure we get all the latest dependencies etc
 - Don't forget to port over the changes to the `web/index.html` HTML file with our header customisation
+  - In the head: `<title>`, `<link>` (for fonts)
+  - In the body an initial `<div>` including the logo, and instructions (positioned prior the data-harmonizer-toolbar container-fluid iv)
 - You will likely have a merge conflict when opening the PR - follow GitHub instructions then use this for easiest resolution
 
   ```bash
@@ -43,33 +48,40 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 - Change into `cd web/templates`
 - Delete most of the contents of `/web/templates/` (leave one example until the new templates are added, e.g. keep `mpox`, and also `new/` for reference)
 - Delete `menu.json`
-- Make a directory `mixs-minas/` and change into it
+- Make a directory `mixs-minas/`
+
+  ```bash
+  mkdir mixs-minas
+  cd mixs-minas/
+  ```
+
 - Add to directory a file `export.js` just containing `export default {};`
 
   ```bash
   echo "export default {};" > export.js
   ```
 
-  - Write a txt file called (`dh_class_text.txt`) which includes the text for an additional classed called [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
+- Write a txt file called (`dh_class_text.txt`) which includes the text for an additional classed called [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
 
-    ```yaml
-    dh_interface:
-      name: dh_interface
-      description: A DataHarmonizer interface
-      from_schema: https://github.com/MIxS-MInAS/minas
-    MInAS-checklists:
-      name: MInAS-checklists
-      description:
-        The Minimum Information about any Ancient Sequence (MInAS) project aims
-        to develop standardised metadata reporting schemes of ancient DNA samples and
-        sequencing data via community-based consensus and training.
-        This checklist contains relevant aDNA MIxS combinations plus the ancient and
-        radiocarbon extension
-      is_a: dh_interface
-    ```
+  ```yaml
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://github.com/MIxS-MInAS/minas
+  MInAS-checklists:
+    name: MInAS-checklists
+    description:
+      The Minimum Information about any Ancient Sequence (MInAS) project aims
+      to develop standardised metadata reporting schemes of ancient DNA samples and
+      sequencing data via community-based consensus and training.
+      This checklist contains relevant aDNA MIxS combinations plus the ancient and
+      radiocarbon extension
+    is_a: dh_interface
+  ```
 
-    > [!WARNING]
-    > Ensure you keep the leading tab indentation!
+  > [!WARNING]
+  > Ensure you keep the leading 2-space tab indentation!
+  > Make sure there is a final new line!
 
 ### Creating the DataHarmonizer compatible schema
 
@@ -96,7 +108,7 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
   - Generate the DataHarmonizer compatible JSON with:
 
   ```bash
-  python ../../../script/linkml.py -m -i minas.yml
+  python ../../../script/linkml.py -i minas.yml
   ```
 
   > [!NOTE]
@@ -104,20 +116,19 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 
   - (Manually) Delete everything that you don't want in `menu.json`
 
-    - basically remove every entry EXCEPT Ancient, RadiocarbonDating, and any combination with `Ancient`
-    - Set everything to `true`
+        - basically remove every entry EXCEPT Ancient, RadiocarbonDating, and any combination with `Ancient`
 
-    ```bash
-    ## Only activated ones we are interested in
-    ## This works by finding the first string, then in the replacement pattern skip two lines (N;), then perform the actual replacement
+        ```bash
+        ## Only activated ones we are interested in
+        ## This works by finding the first string, then in the replacement pattern skip two lines (N;), then perform the actual replacement
 
-    sed -i "/Ancient\"\,/{N;N;s/false/true/g}" ../menu.json
-    sed -i "/RadiocarbonDating\"\,/{N;N;s/false/true/g}" ../menu.json
-    ```
+        sed -i "/Ancient\"\,/{N;N;s/false/true/g}" ../menu.json
+        sed -i "/RadiocarbonDating\"\,/{N;N;s/false/true/g}" ../menu.json
+        ```
 
-    > [!WARNING]
-    > This seems to be a regression, where if you don't have the first entry in the `menu.json` set to `true` then the whole thing breaks
-    > Hopefully will be fixed in the future
+        > [!WARNING]
+        > This seems to be a regression, where if you don't have the first entry in the `menu.json` set to `true` then the whole thing breaks
+        > Hopefully will be fixed in the future
 
 ### Testing the DataHarmonizer instance
 

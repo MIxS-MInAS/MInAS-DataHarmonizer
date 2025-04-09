@@ -5827,7 +5827,8 @@ classes:
       sequencing data via community-based consensus and training.
       This checklist contains relevant aDNA MIxS combinations plus the ancient and
       radiocarbon extension
-    is_a: dh_interface 
+    is_a: dh_interface
+
   MigsOrg:
     description: "Minimal Information about a Genome Sequence: organelle"
     title: MIGS org
