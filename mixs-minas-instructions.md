@@ -79,7 +79,7 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 - Download the mixs-minas latest release's schema
 
   ```bash
-  MIXS_MINAS_VERSION=0.4.0
+  MIXS_MINAS_VERSION=0.4.1
   curl -o mixs-minas.yaml https://raw.githubusercontent.com/MIxS-MInAS/MInAS/refs/tags/v$MIXS_MINAS_VERSION/src/mixs/schema/mixs-minas.yaml
   ```
 
@@ -140,4 +140,12 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 
   ```bash
   cp -r web/dist/ docs/
+  ```
+
+- Commit and push, checking the GitHub Actions workflow runs successfully
+
+  ```bash
+  ## Assuming you want to push everything!
+  git commit -am "Update MInAS DataHarmonizer to MInAS v0.4.1"
+  git push origin main
   ```
