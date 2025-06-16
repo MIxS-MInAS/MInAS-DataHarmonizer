@@ -147,5 +147,5 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
   ```bash
   ## Assuming you want to push everything!
   git commit -am "Update MInAS DataHarmonizer to MInAS v0.4.1"
-  git push origin main
+  git push origin master
   ```
