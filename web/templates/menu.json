@@ -19,7 +19,7 @@
     },
     "Mimag": {
       "name": "Mimag",
-      "status": "draft",
+      "status": "published",
       "display": false
     },
     "Mims": {
@@ -179,7 +179,7 @@
     },
     "MiuvigHumanAssociated": {
       "name": "MiuvigHumanAssociated",
-      "status": "draft",
+      "status": "published",
       "display": false
     },
     "Ancient": {
@@ -189,62 +189,62 @@
     },
     "RadiocarbonDating": {
       "name": "RadiocarbonDating",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MigsOrgHostAssociatedAncient": {
       "name": "MigsOrgHostAssociatedAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MigsOrgHumanAssociatedAncient": {
       "name": "MigsOrgHumanAssociatedAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MiuvigHostAssociatedAncient": {
       "name": "MiuvigHostAssociatedAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MiuvigHumanAssociatedAncient": {
       "name": "MiuvigHumanAssociatedAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MimagHostAssociatedAncient": {
       "name": "MimagHostAssociatedAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MimagHumanAssociatedAncient": {
       "name": "MimagHumanAssociatedAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MimagHumanOralAncient": {
       "name": "MimagHumanOralAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MimagHumanGutAncient": {
       "name": "MimagHumanGutAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MimagHumanSkinAncient": {
       "name": "MimagHumanSkinAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MimagSedimentAncient": {
       "name": "MimagSedimentAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MimagSoilAncient": {
       "name": "MimagSoilAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MimsHostAssociatedAncient": {
@@ -264,12 +264,12 @@
     },
     "MimsHumanGutAncient": {
       "name": "MimsHumanGutAncient",
-      "status": "draft",
+      "status": "published",
       "display": true
     },
     "MimsHumanSkinAncient": {
       "name": "MimsHumanSkinAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     },
     "MimsSedimentAncient": {
@@ -279,17 +279,17 @@
     },
     "MimsSoilAncient": {
       "name": "MimsSoilAncient",
-      "status": "draft",
+      "status": "published",
       "display": true
     },
     "MimsPlantAssociatedAncient": {
       "name": "MimsPlantAssociatedAncient",
-      "status": "draft",
+      "status": "published",
       "display": true
     },
     "MimsSymbiontAssociatedAncient": {
       "name": "MimsSymbiontAssociatedAncient",
-      "status": "draft",
+      "status": "drafted",
       "display": true
     }
   }
