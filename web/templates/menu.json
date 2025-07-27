@@ -189,62 +189,62 @@
     },
     "RadiocarbonDating": {
       "name": "RadiocarbonDating",
-      "status": "drafted",
+      "status": "published",
       "display": true
     },
     "MigsOrgHostAssociatedAncient": {
       "name": "MigsOrgHostAssociatedAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MigsOrgHumanAssociatedAncient": {
       "name": "MigsOrgHumanAssociatedAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MiuvigHostAssociatedAncient": {
       "name": "MiuvigHostAssociatedAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MiuvigHumanAssociatedAncient": {
       "name": "MiuvigHumanAssociatedAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MimagHostAssociatedAncient": {
       "name": "MimagHostAssociatedAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MimagHumanAssociatedAncient": {
       "name": "MimagHumanAssociatedAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MimagHumanOralAncient": {
       "name": "MimagHumanOralAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MimagHumanGutAncient": {
       "name": "MimagHumanGutAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MimagHumanSkinAncient": {
       "name": "MimagHumanSkinAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MimagSedimentAncient": {
       "name": "MimagSedimentAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MimagSoilAncient": {
       "name": "MimagSoilAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MimsHostAssociatedAncient": {
@@ -269,7 +269,7 @@
     },
     "MimsHumanSkinAncient": {
       "name": "MimsHumanSkinAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     },
     "MimsSedimentAncient": {
@@ -289,7 +289,7 @@
     },
     "MimsSymbiontAssociatedAncient": {
       "name": "MimsSymbiontAssociatedAncient",
-      "status": "drafted",
+      "status": "draft",
       "display": true
     }
   }
