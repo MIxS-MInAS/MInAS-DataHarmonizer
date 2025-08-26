@@ -76,10 +76,12 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 
 ### Creating the DataHarmonizer compatible schema
 
+- Make sure you are in `web/templates/mixs-minas/`
+
 - Download the mixs-minas latest release's schema
 
   ```bash
-  MIXS_MINAS_VERSION=0.4.1
+  MIXS_MINAS_VERSION=0.6.0
   curl -o mixs-minas.yaml https://raw.githubusercontent.com/MIxS-MInAS/MInAS/refs/tags/v$MIXS_MINAS_VERSION/src/mixs/schema/mixs-minas.yaml
   ```
 
@@ -113,6 +115,9 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 
     sed -i "/Ancient\"\,/{N;N;s/false/true/g}" ../menu.json
     sed -i "/RadiocarbonDating\"\,/{N;N;s/false/true/g}" ../menu.json
+    sed -i "/: \"Migs.*\"\,/{N;N;N;s/published/draft/g}" ../menu.json ## Not yet ordered, so we set to draft
+    sed -i "/: \"Miuvig.*\"\,/{N;N;N;s/published/draft/g}" ../menu.json ## Not yet ordered, so we set to draft
+    sed -i "/: \"Mimag.*\"\,/{N;N;N;s/published/draft/g}" ../menu.json ## Not yet ordered, so we set to draft
     ```
 
 ### Testing the DataHarmonizer instance
