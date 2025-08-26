@@ -120,6 +120,17 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
     sed -i "/: \"Mimag.*\"\,/{N;N;N;s/published/draft/g}" ../menu.json ## Not yet ordered, so we set to draft
     ```
 
+- Replace the version in the interface header
+
+  ```bash
+  cd ../../../
+  sed -i 's/MInAS version: 0.5.0/MInAS version: 0.6.0/g' minas-dataharmonizer-header.txt
+  sed -i 's/MInAS version: 0.5.0/MInAS version: 0.6.0/g' web/index.html
+  ```
+
+  > [!WARNING]
+  > Don't forget to update the strings in the command above
+
 ### Testing the DataHarmonizer instance
 
 - Test in a local web server
@@ -137,7 +148,6 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 - Remove the old docs directory at the root of the repository
 
   ```bash
-  cd ../../../
   rm -r docs/
   ```
 
@@ -146,6 +156,8 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
   ```bash
   cp -r web/dist/ docs/
   ```
+
+
 
 - Commit and push, checking the GitHub Actions workflow runs successfully
 
