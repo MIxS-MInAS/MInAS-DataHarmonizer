@@ -157,12 +157,10 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
   cp -r web/dist/ docs/
   ```
 
-
-
 - Commit and push, checking the GitHub Actions workflow runs successfully
 
   ```bash
   ## Assuming you want to push everything!
-  git commit -am "Update MInAS DataHarmonizer to MInAS v0.4.1"
+  git commit -am "Update MInAS DataHarmonizer to MInAS v0.6.0"
   git push origin master
   ```
