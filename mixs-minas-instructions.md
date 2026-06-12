@@ -81,7 +81,7 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 - Download the mixs-minas latest release's schema
 
   ```bash
-  MIXS_MINAS_VERSION=0.6.0
+  MIXS_MINAS_VERSION=0.7.0
   curl -o mixs-minas.yaml https://raw.githubusercontent.com/MIxS-MInAS/MInAS/refs/tags/v$MIXS_MINAS_VERSION/src/mixs/schema/mixs-minas.yaml
   ```
 
@@ -89,7 +89,8 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 
   ```bash
   ## Update based on combinations from `minas-combinations.yml`
-  lmtk subset --schema mixs-minas.yaml --output minas.yml --classes MixsCompliantData,Ancient,RadiocarbonDating,MigsOrgHostAssociatedAncient,MigsOrgHumanAssociatedAncient,MiuvigHostAssociatedAncient,MiuvigHumanAssociatedAncient,MimagHostAssociatedAncient,MimagHumanAssociatedAncient,MimagHumanOralAncientMimagHumanGutAncient,MimagHumanSkinAncient,MimagSedimentAncient,MimagSkinAncient,MimsHostAssociatedAncient,MimsHumanAssociatedAncient,MimsHumanOralAncient,MimsHumanGutAncient,MimsHumanSkinAncient,MimsSedimentAncient,MimsSoilAncient,MimsPlantAncient,MimsSymbiontAncient
+  minas_combs=$(grep 'Ancient:' mixs-minas.yaml | sed 's/://g' | xargs | tr ' ' ',')
+  lmtk subset --schema mixs-minas.yaml --output minas.yml --classes MixsCompliantData,"$minas_combs"
   ```
 
   - Inject the `dh_class` into the `schema.yaml` file with e.g.
@@ -106,26 +107,20 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 
   - (Manually) Delete everything that you don't want in `menu.json`
 
-    - basically remove every entry EXCEPT Ancient, RadiocarbonDating, and any combination with `Ancient`
+    - basically remove every entry of a combination ending in `Ancient`
     - Set everything to `true`
 
     ```bash
     ## Only activated ones we are interested in
     ## This works by finding the first string, then in the replacement pattern skip two lines (N;), then perform the actual replacement
-
-    sed -i "/Ancient\"\,/{N;N;s/false/true/g}" ../menu.json
-    sed -i "/RadiocarbonDating\"\,/{N;N;s/false/true/g}" ../menu.json
-    sed -i "/: \"Migs.*\"\,/{N;N;N;s/published/draft/g}" ../menu.json ## Not yet ordered, so we set to draft
-    sed -i "/: \"Miuvig.*\"\,/{N;N;N;s/published/draft/g}" ../menu.json ## Not yet ordered, so we set to draft
-    sed -i "/: \"Mimag.*\"\,/{N;N;N;s/published/draft/g}" ../menu.json ## Not yet ordered, so we set to draft
+    sed -i "/[a-zA-Z]Ancient\"\,/{N;N;s/false/true/g}" ../menu.json
     ```
 
-- Replace the version in the interface header
+- Back in the root of the repo, replace the version in the interface header
 
   ```bash
   cd ../../../
-  sed -i 's/MInAS version: 0.5.0/MInAS version: 0.6.0/g' minas-dataharmonizer-header.txt
-  sed -i 's/MInAS version: 0.5.0/MInAS version: 0.6.0/g' web/index.html
+  sed -i "s/MInAS version: [0-9].[0-9].[0-9]/MInAS version: $MIXS_MINAS_VERSION/g" web/index.html
   ```
 
   > [!WARNING]
@@ -161,6 +156,6 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 
   ```bash
   ## Assuming you want to push everything!
-  git commit -am "Update MInAS DataHarmonizer to MInAS v0.6.0"
+  git commit -am "Update MInAS DataHarmonizer to MInAS v$MIXS_MINAS_VERSION"
   git push origin master
   ```
