@@ -81,11 +81,12 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 - Download the mixs-minas latest release's schema
 
   ```bash
-  MIXS_MINAS_VERSION=0.7.0
+  cd web/templates/mixs/minas/
+  MIXS_MINAS_VERSION=0.7.1
   curl -o mixs-minas.yaml https://raw.githubusercontent.com/MIxS-MInAS/MInAS/refs/tags/v$MIXS_MINAS_VERSION/src/mixs/schema/mixs-minas.yaml
   ```
 
-  - Subset the mega schema to just those combinations relevant to MInAS (i.e., the ones in `minas-combinations.yml`)
+  - Using LinkML-toolkit Subset the mega schema to just those combinations relevant to MInAS (i.e., the ones in `minas-combinations.yml`)
 
   ```bash
   ## Update based on combinations from `minas-combinations.yml`
