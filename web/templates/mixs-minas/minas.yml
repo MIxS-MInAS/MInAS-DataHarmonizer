@@ -1,14 +1,15 @@
-name: mixs
+name: mixs-minas
 description: |-
-  This file contains a YAML-formatted specification of the Minimum Information about any (x) Sequence (MIxS) standard, generated using LinkML (https://linkml.io/linkml/). This file is released by the Genomic Standards Consortium (GSC; https://www.gensc.org/) for use by anyone handling data or information about biological sequences. This file is also used as an authoritative 'source of truth' to generate downstream GSC artifacts, available here: https://github.com/GenomicsStandardsConsortium/mixs/tree/main/project
+  MIxS-MInAS, the Minimum Information about any (x) Sequence, is a standard from the Genomic Standards Consortium (GSC, https://www.gensc.org/) for reporting contextual metadata about sequenced samples. It defines checklists for genomic sequence types (for example genomes, metagenomes, and marker genes), environmental extensions, and the terms that populate them. See https://genomicsstandardsconsortium.github.io/mixs/.
 
 
   This is a subset of the original schema containing the following classes: Ancient, MimsHostAssociatedAncient, MimsHumanAssociatedAncient, MimsHumanGutAncient, MimsHumanOralAncient, MimsHumanSkinAncient, MimsPlantAssociatedAncient, MimsSedimentAncient, MimsSoilAncient, MixsCompliantData.
 comments:
 - "slot titles that are associated with more than one slot name/SCN: host sex"
-source: "https://github.com/GenomicsStandardsConsortium/mixs/raw/issue-610-temp-mixs-xlsx-home/mixs/excel/mixs_v6.xlsx"
 id: "https://w3id.org/mixs"
-version: v6.2.0
+see_also:
+- "https://doi.org/10.1038/nbt.1823"
+version: 1.0.0
 imports:
 - "linkml:types"
 prefixes:
@@ -31,6 +32,16 @@ subsets:
   investigation:
   ethics:
 enums:
+  SeasonEnum:
+    permissible_values:
+      "autumn [NCIT:C94733]":
+        meaning: "NCIT:C94733"
+      "spring [NCIT:C94731]":
+        meaning: "NCIT:C94731"
+      "summer [NCIT:C94732]":
+        meaning: "NCIT:C94732"
+      "winter [NCIT:C94730]":
+        meaning: "NCIT:C94730"
   BiolStatEnum:
     permissible_values:
       breeder's line:
@@ -427,6 +438,78 @@ enums:
       Other:
         description: Other types of samples not represented in the controlled vocabulary.
 slots:
+  mims_hostassociated_ancient_data:
+    description: Data that comply with Ancient combined with MimsHostAssociated
+    title: MimsHostAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_hostassociated_ancient_data"
+    multivalued: true
+    range: MimsHostAssociatedAncient
+    inlined: true
+    inlined_as_list: true
+  mims_humanassociated_ancient_data:
+    description: Data that comply with Ancient combined with MimsHumanAssociated
+    title: MimsHumanAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_humanassociated_ancient_data"
+    multivalued: true
+    range: MimsHumanAssociatedAncient
+    inlined: true
+    inlined_as_list: true
+  mims_humanoral_ancient_data:
+    description: Data that comply with Ancient combined with MimsHumanOral
+    title: MimsHumanOralAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_humanoral_ancient_data"
+    multivalued: true
+    range: MimsHumanOralAncient
+    inlined: true
+    inlined_as_list: true
+  mims_humangut_ancient_data:
+    description: Data that comply with Ancient combined with MimsHumanGut
+    title: MimsHumanGutAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_humangut_ancient_data"
+    multivalued: true
+    range: MimsHumanGutAncient
+    inlined: true
+    inlined_as_list: true
+  mims_humanskin_ancient_data:
+    description: Data that comply with Ancient combined with MimsHumanSkin
+    title: MimsHumanSkinAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_humanskin_ancient_data"
+    multivalued: true
+    range: MimsHumanSkinAncient
+    inlined: true
+    inlined_as_list: true
+  mims_sediment_ancient_data:
+    description: Data that comply with Ancient combined with MimsSediment
+    title: MimsSedimentAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_sediment_ancient_data"
+    multivalued: true
+    range: MimsSedimentAncient
+    inlined: true
+    inlined_as_list: true
+  mims_soil_ancient_data:
+    description: Data that comply with Ancient combined with MimsSoil
+    title: MimsSoilAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_soil_ancient_data"
+    multivalued: true
+    range: MimsSoilAncient
+    inlined: true
+    inlined_as_list: true
+  mims_plantassociated_ancient_data:
+    description: Data that comply with Ancient combined with MimsPlantAssociated
+    title: MimsPlantAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_plantassociated_ancient_data"
+    multivalued: true
+    range: MimsPlantAssociatedAncient
+    inlined: true
+    inlined_as_list: true
   adapters:
     description: Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters
     title: adapters
@@ -1199,6 +1282,7 @@ slots:
     slot_uri: "MIXS:0000014"
     range: string
     required: true
+    multivalued: true
     structured_pattern:
       syntax: ^{termLabel} \[{termID}\]$
       interpolated: true
@@ -2314,7 +2398,8 @@ slots:
     keywords:
     - disorder
     slot_uri: "MIXS:0000270"
-    aliases: nose_mouth_teeth_throat_disord
+    aliases:
+    - nose_mouth_teeth_throat_disord
     comments:
     - |
       The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, lung disease (https://disease-ontology.org/?id=DOID:850), upper respiratory tract disease (https://disease-ontology.org/?id=DOID:974)
@@ -2576,9 +2661,11 @@ slots:
     multivalued: true
   plant_growth_med:
     annotations:
-      Expected_value: EO or enumeration
-    description: "Specification of the media for growing the plants or tissue cultured samples, e.g. soil, aeroponic, hydroponic, in vitro solid culture medium, in vitro liquid culture medium. Recommended value is a specific value from EO:plant growth medium (follow this link for terms http://purl.obolibrary.org/obo/EO_0007147) or other controlled vocabulary"
+      Expected_value: PECO or enumeration
+    description: "Specification of the media for growing the plants or tissue cultured samples, e.g. soil, aeroponic, hydroponic, in vitro solid culture medium, in vitro liquid culture medium. Recommended value is a specific value from PECO:plant growth medium exposure (follow this link for terms http://purl.obolibrary.org/obo/PECO_0007147) or other controlled vocabulary"
     title: plant growth medium
+    examples:
+    - value: "hydroponic plant culture media exposure [PECO:0007067]"
     keywords:
     - growth
     - plant
@@ -3099,6 +3186,15 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  season:
+    description: The season when sampling occurred. Any of the four periods into which the year is divided by the equinoxes and solstices.
+    title: season
+    examples:
+    - value: "autumn [NCIT:C94733]"
+    keywords:
+    - season
+    slot_uri: "MIXS:0000829"
+    range: SeasonEnum
   season_environment:
     description: Treatment involving an exposure to a particular season (e.g. Winter, summer, rabi, rainy etc.), treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment
     title: seasonal environment
@@ -3129,6 +3225,8 @@ slots:
   season_temp:
     annotations:
       Preferred_unit: degree Celsius
+    comments:
+    - this slot should not be populated unless season is also populated
     description: Mean seasonal temperature
     title: mean seasonal temperature
     examples:
@@ -3166,7 +3264,7 @@ slots:
     range: string
     required: true
     structured_pattern:
-      syntax: ^{text}|({termLabel} \[{termID}\])$
+      syntax: ^({text}|({termLabel} \[{termID}\]))$
       interpolated: true
       partial_match: true
   sieving:
@@ -3776,7 +3874,7 @@ slots:
     keywords:
     - environment
     - sample
-    slot_uri: "MIXS:999999901"
+    slot_uri: "MIXS:0001356"
     multivalued: true
     range: string
     required: false
@@ -3795,7 +3893,7 @@ slots:
     keywords:
     - location
     - site
-    slot_uri: "MIXS:999999902"
+    slot_uri: "MIXS:0001357"
     multivalued: false
     range: string
     required: false
@@ -3810,7 +3908,7 @@ slots:
     examples:
     - value: '50.586825'
     - value: '-0.123'
-    slot_uri: "MIXS:999999903"
+    slot_uri: "MIXS:0001358"
     multivalued: false
     required: false
     recommended: false
@@ -3826,7 +3924,7 @@ slots:
     - value: '-12.12'
     in_subset:
     - environment
-    slot_uri: "MIXS:999999904"
+    slot_uri: "MIXS:0001359"
     multivalued: false
     required: false
     recommended: false
@@ -3845,7 +3943,7 @@ slots:
     - context
     - environmental
     - ancient
-    slot_uri: "MIXS:999999905"
+    slot_uri: "MIXS:0001360"
     range: string
     required: false
     recommended: true
@@ -3868,7 +3966,7 @@ slots:
     - environmental
     - ancient
     string_serialization: '{termLabel} [{termID}]'
-    slot_uri: "MIXS:999999906"
+    slot_uri: "MIXS:0001361"
     required: false
     recommended: true
   stratigraph_context:
@@ -3891,7 +3989,7 @@ slots:
     keywords:
     - identifiers
     - excavation
-    slot_uri: "MIXS:999999907"
+    slot_uri: "MIXS:0001362"
     multivalued: true
     range: string
     required: false
@@ -3907,7 +4005,7 @@ slots:
     - value: '2001-09-25'
     in_subset:
     - environment
-    slot_uri: "MIXS:999999909"
+    slot_uri: "MIXS:0001363"
     range: datetime
     required: false
     recommended: true
@@ -3920,7 +4018,7 @@ slots:
     - nucleic acid sequence source
     keywords:
     - ethics
-    slot_uri: "MIXS:999999910"
+    slot_uri: "MIXS:0001364"
     multivalued: true
     range: string
     required: false
@@ -3938,7 +4036,7 @@ slots:
     keywords:
     - ethics
     - location
-    slot_uri: "MIXS:999999911"
+    slot_uri: "MIXS:0001365"
     close_mappings:
     - "dc:rightsHolder"
     multivalued: true
@@ -3952,7 +4050,7 @@ slots:
     - value: '2023-12-01'
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999912"
+    slot_uri: "MIXS:0001366"
     multivalued: true
     range: datetime
     required: false
@@ -3968,7 +4066,7 @@ slots:
     - nucleic acid sequence source
     keywords:
     - ethics
-    slot_uri: "MIXS:999999913"
+    slot_uri: "MIXS:0001367"
     close_mappings:
     - "dc:accessRights"
     - "dc:license"
@@ -3990,7 +4088,7 @@ slots:
     - nucleic acid sequence source
     keywords:
     - ethics
-    slot_uri: "MIXS:999999914"
+    slot_uri: "MIXS:0001368"
     multivalued: true
     range: BioCulturalLabelEnum
     required: false
@@ -4004,7 +4102,7 @@ slots:
     - value: "Museum ID: NHM_AR_123, Drilling ID: DRL_001, Extraction ID: ABC_24"
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999915"
+    slot_uri: "MIXS:0001369"
     multivalued: true
     range: string
     string_serialization: '{text}'
@@ -4017,7 +4115,7 @@ slots:
     - value: "doi:10.1016/j.jas.2015.02.0181"
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999916"
+    slot_uri: "MIXS:0001370"
     multivalued: true
     range: string
     pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
@@ -4040,7 +4138,7 @@ slots:
     - nucleic acid sequence source
     keywords:
     - ancient
-    slot_uri: "MIXS:999999917"
+    slot_uri: "MIXS:0001371"
     multivalued: false
     range: string
     string_serialization: '{text}'
@@ -4057,7 +4155,7 @@ slots:
     - nucleic acid sequence source
     keywords:
     - ancient
-    slot_uri: "MIXS:999999919"
+    slot_uri: "MIXS:0001372"
     multivalued: true
     range: string
     string_serialization: '{text}'
@@ -4079,7 +4177,7 @@ slots:
     - age
     range: string
     string_serialization: '{termLabel} [{termID}]|{text}'
-    slot_uri: "MIXS:999999920"
+    slot_uri: "MIXS:0001373"
     multivalued: false
     required: false
     recommended: false
@@ -4098,7 +4196,7 @@ slots:
     - ancient
     - age
     range: GeolEpochEnum
-    slot_uri: "MIXS:999999921"
+    slot_uri: "MIXS:0001374"
     multivalued: false
     required: false
     recommended: false
@@ -4112,7 +4210,7 @@ slots:
     - value: '1900'
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999922"
+    slot_uri: "MIXS:0001375"
     broad_mappings:
     - "chrono:earliestChronometricAge"
     multivalued: false
@@ -4129,7 +4227,7 @@ slots:
     - value: ka
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999923"
+    slot_uri: "MIXS:0001376"
     broad_mappings:
     - "chrono:earliestChronometricAgeReferenceSystem"
     multivalued: false
@@ -4146,7 +4244,7 @@ slots:
     - value: '1700'
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999924"
+    slot_uri: "MIXS:0001377"
     broad_mappings:
     - "chrono:latestChronometricAge"
     multivalued: false
@@ -4163,7 +4261,7 @@ slots:
     - value: ka
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999925"
+    slot_uri: "MIXS:0001378"
     broad_mappings:
     - "chrono:latestChronometricAgeReferenceSystem"
     multivalued: false
@@ -4171,7 +4269,7 @@ slots:
     required: true
     recommended: true
   chrono_age_protocol:
-    description: A description of or reference to the methods used to determine the earliest_chrono_age and latest_chrono_age.
+    description: The methods used to determine the earliest_chrono_age and latest_chrono_age.
     title: chronometric age protocol
     examples:
     - value: radiocarbon dating
@@ -4180,7 +4278,7 @@ slots:
     - value: historical records
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999926"
+    slot_uri: "MIXS:0001379"
     broad_mappings:
     - "chrono:chronometricAgeProtocol"
     multivalued: true
@@ -4188,7 +4286,7 @@ slots:
     required: false
     recommended: true
   chrono_age_remarks:
-    description: Notes or comments about the  earliest_chrono_age and latest_chrono_age. For more detail use Chronometric Age Protocol to point to original publication describing method. Useful to specify confidence and/or accuracy of reported date.
+    description: Notes or comments about the  earliest_chrono_age and latest_chrono_age. Can be used to give additional information about how date(s) were obtained, and/or point to original publication(s) describing specific protocol specified in `chrono_age_protocol`. For example, it can be useful to specify confidence and/or accuracy of reported date, radiocarbon ID or lab code(s), etc.
     title: chronometric age remarks
     examples:
     - value: radiocarbon dating, calibrated with OxCal v4.3 with 95% confidence interval
@@ -4196,9 +4294,10 @@ slots:
     - value: a coin found in the burial was from the 3rd century was found in the mouth of the skeleton
     - value: age taken from previous publication Doe et al. 2019
     - value: "radiocarbon age ID: OxA-12345"
+    - value: "https://doi.org/10.1017/RDC.2018.14"
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999927"
+    slot_uri: "MIXS:0001380"
     close_mappings:
     - "chrono:chronometricAgeRemarks"
     multivalued: false
@@ -4220,7 +4319,7 @@ slots:
     - palaeopathology
     - host health
     - ancient
-    slot_uri: "MIXS:999999928"
+    slot_uri: "MIXS:0001381"
     multivalued: false
     range: string
     string_serialization: '{text}'
@@ -4240,7 +4339,7 @@ slots:
     - nucleic acid sequence source
     keywords:
     - identifiers
-    slot_uri: "MIXS:999999929"
+    slot_uri: "MIXS:0001382"
     multivalued: true
     range: string
     required: false
@@ -4256,7 +4355,7 @@ slots:
     - control
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999930"
+    slot_uri: "MIXS:0001383"
     range: SampCategoryEnum
     required: true
     recommended: true
@@ -4267,7 +4366,7 @@ slots:
     - value: "doi:10.1016/j.jas.2015.02.0181"
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999931"
+    slot_uri: "MIXS:0001384"
     multivalued: true
     range: string
     pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
@@ -4287,7 +4386,7 @@ slots:
     - sequencing
     keywords:
     - ancient
-    slot_uri: "MIXS:999999932"
+    slot_uri: "MIXS:0001385"
     multivalued: false
     range: DamageTreatmentEnum
     recommended: true
@@ -4299,7 +4398,7 @@ slots:
     - value: '2023-12-01'
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999933"
+    slot_uri: "MIXS:0001386"
     range: datetime
     required: false
     recommended: false
@@ -4310,7 +4409,7 @@ slots:
     - value: "doi:10.1093/nar/gkr771"
     in_subset:
     - nucleic acid sequence source
-    slot_uri: "MIXS:999999934"
+    slot_uri: "MIXS:0001387"
     multivalued: true
     range: string
     pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
@@ -4333,7 +4432,7 @@ slots:
     keywords:
     - library
     - preparation
-    slot_uri: "MIXS:999999935"
+    slot_uri: "MIXS:0001388"
     multivalued: true
     range: string
     string_serialization: '{text}'
@@ -4352,7 +4451,7 @@ slots:
     - sequencing
     keywords:
     - sequencing
-    slot_uri: "MIXS:999999936"
+    slot_uri: "MIXS:0001389"
     multivalued: true
     range: string
     required: false
@@ -4373,7 +4472,7 @@ slots:
     - library
     - preparation
     string_serialization: '{text}'
-    slot_uri: "MIXS:999999937"
+    slot_uri: "MIXS:0001390"
     range: string
     required: false
     recommended: true
@@ -4390,7 +4489,7 @@ slots:
     keywords:
     - library
     - preparation
-    slot_uri: "MIXS:999999938"
+    slot_uri: "MIXS:0001391"
     multivalued: true
     range: LibStrandEnum
     required: true
@@ -4407,7 +4506,7 @@ slots:
     keywords:
     - library
     - preparation
-    slot_uri: "MIXS:999999939"
+    slot_uri: "MIXS:0001392"
     range: LibTypeEnum
     required: false
     recommended: true
@@ -4418,7 +4517,7 @@ slots:
     - value: "doi:10.1093/nar/gkr771"
     in_subset:
     - sequencing
-    slot_uri: "MIXS:999999940"
+    slot_uri: "MIXS:0001393"
     multivalued: true
     range: string
     pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
@@ -4435,7 +4534,7 @@ slots:
     - value: '12'
     in_subset:
     - sequencing
-    slot_uri: "MIXS:999999941"
+    slot_uri: "MIXS:0001394"
     range: integer
   capt_pcr_cyc_tot:
     description: Amplification cycles after capture enrichment total. Provide additional information about PCR conditions in pcr_cond
@@ -4444,7 +4543,7 @@ slots:
     - value: '12'
     in_subset:
     - sequencing
-    slot_uri: "MIXS:999999942"
+    slot_uri: "MIXS:0001395"
     range: integer
     multivalued: true
     required: false
@@ -4465,7 +4564,7 @@ slots:
     - library
     - enrichment
     - capture
-    slot_uri: "MIXS:999999943"
+    slot_uri: "MIXS:0001396"
     multivalued: true
     range: integer
     string_serialization:
@@ -4484,7 +4583,7 @@ slots:
     keywords:
     - library
     - enrichment
-    slot_uri: "MIXS:999999944"
+    slot_uri: "MIXS:0001397"
     multivalued: true
     range: string
     string_serialization: '{text}'
@@ -4504,12 +4603,12 @@ slots:
     keywords:
     - data analysis
     - data
-    slot_uri: "MIXS:999999945"
+    slot_uri: "MIXS:0001398"
     multivalued: false
     range: string
     required: false
     recommended: true
-  reads_removed_desc:
+  reads_removed:
     annotations:
       Expected_value: Whether any sequencing reads were removed from the data files after sequencing
     description: Specify whether associated data was filtered in some form prior to upload, such as host reads removal. Detailed description of the the data filtering that was carried out should be described in term 'preprocessing of sequencing reads description'.
@@ -4521,83 +4620,11 @@ slots:
     - sequencing
     keywords:
     - data analysis
-    slot_uri: "MIXS:999999946"
+    slot_uri: "MIXS:0001399"
     multivalued: false
     range: boolean
     required: false
     recommended: true
-  mims_hostassociated_ancient_data:
-    description: Data that comply with Ancient combined with MimsHostAssociated
-    title: MimsHostAssociatedAncient Data
-    domain: MixsCompliantData
-    slot_uri: "MIXS:mims_hostassociated_ancient_data"
-    multivalued: true
-    range: MimsHostAssociatedAncient
-    inlined: true
-    inlined_as_list: true
-  mims_humanassociated_ancient_data:
-    description: Data that comply with Ancient combined with MimsHumanAssociated
-    title: MimsHumanAssociatedAncient Data
-    domain: MixsCompliantData
-    slot_uri: "MIXS:mims_humanassociated_ancient_data"
-    multivalued: true
-    range: MimsHumanAssociatedAncient
-    inlined: true
-    inlined_as_list: true
-  mims_humanoral_ancient_data:
-    description: Data that comply with Ancient combined with MimsHumanOral
-    title: MimsHumanOralAncient Data
-    domain: MixsCompliantData
-    slot_uri: "MIXS:mims_humanoral_ancient_data"
-    multivalued: true
-    range: MimsHumanOralAncient
-    inlined: true
-    inlined_as_list: true
-  mims_humangut_ancient_data:
-    description: Data that comply with Ancient combined with MimsHumanGut
-    title: MimsHumanGutAncient Data
-    domain: MixsCompliantData
-    slot_uri: "MIXS:mims_humangut_ancient_data"
-    multivalued: true
-    range: MimsHumanGutAncient
-    inlined: true
-    inlined_as_list: true
-  mims_humanskin_ancient_data:
-    description: Data that comply with Ancient combined with MimsHumanSkin
-    title: MimsHumanSkinAncient Data
-    domain: MixsCompliantData
-    slot_uri: "MIXS:mims_humanskin_ancient_data"
-    multivalued: true
-    range: MimsHumanSkinAncient
-    inlined: true
-    inlined_as_list: true
-  mims_sediment_ancient_data:
-    description: Data that comply with Ancient combined with MimsSediment
-    title: MimsSedimentAncient Data
-    domain: MixsCompliantData
-    slot_uri: "MIXS:mims_sediment_ancient_data"
-    multivalued: true
-    range: MimsSedimentAncient
-    inlined: true
-    inlined_as_list: true
-  mims_soil_ancient_data:
-    description: Data that comply with Ancient combined with MimsSoil
-    title: MimsSoilAncient Data
-    domain: MixsCompliantData
-    slot_uri: "MIXS:mims_soil_ancient_data"
-    multivalued: true
-    range: MimsSoilAncient
-    inlined: true
-    inlined_as_list: true
-  mims_plantassociated_ancient_data:
-    description: Data that comply with Ancient combined with MimsPlantAssociated
-    title: MimsPlantAssociatedAncient Data
-    domain: MixsCompliantData
-    slot_uri: "MIXS:mims_plantassociated_ancient_data"
-    multivalued: true
-    range: MimsPlantAssociatedAncient
-    inlined: true
-    inlined_as_list: true
 classes:
   dh_interface:
     name: dh_interface
@@ -4724,6 +4751,199 @@ classes:
       temp:
         recommended: true
     class_uri: "MIXS:0010007"
+  Ancient:
+    description: A collection of terms appropriate when collecting samples and sequencing samples  of data containing ancient nucleic acids, i.e., degraded molecules not from living organisms.
+    aliases:
+    - minas
+    comments:
+    - This extension that is intended to be used in very specific cases but almost always in conjunction with other MIxS checklists and extensions. It does not therefore (currently) include additional common terms from checklists.
+    title: ancient
+    is_a: Extension
+    slots:
+    - orig_site_name
+    - orig_site_loc
+    - orig_site_lat
+    - orig_site_lon
+    - past_env_broad
+    - past_env_local
+    - stratigraph_context
+    - context_retrieval_date
+    - permit_id
+    - permit_authority
+    - permit_date
+    - permit_scope
+    - biocultural_label
+    - samp_alt_lab_ids
+    - prev_pubs
+    - host_preserv_state
+    - store_cond
+    - samp_preserv_treatm
+    - cultural_era
+    - geological_epoch
+    - earliest_chrono_age
+    - earliest_chrono_sys
+    - latest_chrono_age
+    - latest_chrono_sys
+    - chrono_age_protocol
+    - chrono_age_remarks
+    - palaeopath_status
+    - batch_ids
+    - samp_category
+    - samp_decont_pretreat
+    - damage_treatment
+    - nucl_acid_extr_date
+    - sop_experimental
+    - lib_mid_desc
+    - library_name
+    - lib_polymerase
+    - lib_strandedness
+    - lib_gener_technique
+    - sop_lib_preparation
+    - reamp_pcr_cyc_tot
+    - capt_pcr_cyc_tot
+    - capt_probe_src_taxid
+    - capt_probe_desc
+    - data_preproc_desc
+    - reads_removed
+    slot_usage:
+      orig_site_name:
+        slot_group: Environment
+        rank: 1
+      orig_site_loc:
+        slot_group: Environment
+        rank: 2
+      orig_site_lat:
+        slot_group: Environment
+        rank: 3
+      orig_site_lon:
+        slot_group: Environment
+        rank: 4
+      past_env_broad:
+        slot_group: Environment
+        rank: 5
+      past_env_local:
+        slot_group: Environment
+        rank: 6
+      context_retrieval_date:
+        slot_group: Environment
+        rank: 7
+      stratigraph_context:
+        slot_group: Environment
+        rank: 8
+      permit_id:
+        slot_group: Sample body
+        rank: 9
+      permit_authority:
+        slot_group: Sample body
+        rank: 10
+      permit_date:
+        slot_group: Sample body
+        rank: 11
+      permit_scope:
+        slot_group: Sample body
+        rank: 12
+      biocultural_label:
+        slot_group: Sample body
+        rank: 13
+      samp_alt_lab_ids:
+        slot_group: Sample body
+        rank: 14
+      prev_pubs:
+        slot_group: Sample body
+        rank: 15
+      host_preserv_state:
+        slot_group: Sample body
+        rank: 16
+      store_cond:
+        slot_group: Sample body
+        rank: 17
+      samp_preserv_treatm:
+        slot_group: Sample body
+        rank: 18
+      cultural_era:
+        slot_group: Sample body
+        rank: 19
+      geological_epoch:
+        slot_group: Sample body
+        rank: 20
+      earliest_chrono_age:
+        slot_group: Sample body
+        rank: 21
+      earliest_chrono_sys:
+        slot_group: Sample body
+        rank: 22
+      latest_chrono_age:
+        slot_group: Sample body
+        rank: 23
+      latest_chrono_sys:
+        slot_group: Sample body
+        rank: 24
+      chrono_age_protocol:
+        slot_group: Sample body
+        rank: 25
+      chrono_age_remarks:
+        slot_group: Sample body
+        rank: 26
+      palaeopath_status:
+        slot_group: Sample body
+        rank: 27
+      batch_ids:
+        slot_group: Nucleic acid source
+        rank: 28
+      samp_category:
+        slot_group: Nucleic acid source
+        rank: 29
+      samp_decont_pretreat:
+        slot_group: Nucleic acid source
+        rank: 30
+      nucl_acid_extr_date:
+        slot_group: Nucleic acid source
+        rank: 31
+      sop_experimental:
+        slot_group: Nucleic acid source
+        rank: 32
+      damage_treatment:
+        slot_group: Sequencing
+        rank: 33
+      lib_mid_desc:
+        slot_group: Sequencing
+        rank: 34
+      library_name:
+        slot_group: Sequencing
+        rank: 35
+      lib_polymerase:
+        slot_group: Sequencing
+        rank: 36
+      lib_strandedness:
+        slot_group: Sequencing
+        rank: 37
+      sop_lib_preparation:
+        slot_group: Sequencing
+        rank: 38
+      lib_gener_technique:
+        slot_group: Sequencing
+        rank: 39
+      reamp_pcr_cyc_tot:
+        slot_group: Sequencing
+        rank: 40
+      capt_pcr_cyc_tot:
+        slot_group: Sequencing
+        rank: 41
+      capt_probe_src_taxid:
+        slot_group: Sequencing
+        rank: 42
+      capt_probe_desc:
+        slot_group: Sequencing
+        rank: 43
+      data_preproc_desc:
+        slot_group: Data analysis
+        rank: 44
+      reads_removed:
+        slot_group: Data analysis
+        rank: 45
+    class_uri: "MIXS:0016024"
+    annotations:
+      use_cases: ancient dna samples
   HostAssociated:
     description: A collection of terms appropriate when collecting samples and sequencing samples obtained from a non-human host, to examine the host-associated microbiome or genome.
     comments:
@@ -5228,7 +5448,7 @@ classes:
     annotations:
       use_cases: swab samples taken on a person’s skin surface.
   PlantAssociated:
-    description: A collection of terms appropriate when collecting samples and sequencing samples  obtained from a plant to examine its plant-associated microbiome.
+    description: A collection of terms appropriate when collecting samples and sequencing samples obtained from a plant to examine its plant-associated microbiome.
     title: plant-associated
     is_a: Extension
     slots:
@@ -5362,9 +5582,6 @@ classes:
         string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
       ph_regm:
         string_serialization: '{float};{Rn/start_time/end_time/duration}'
-      plant_growth_med:
-        examples:
-        - value: "hydroponic plant culture media [EO:0007067]"
       salt_regm:
         string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
       season_environment:
@@ -5541,6 +5758,7 @@ classes:
     - al_sat
     - al_sat_meth
     - misc_param
+    - season
     slot_usage:
       crop_rotation:
         string_serialization: '{boolean};{Rn/start_time/end_time/duration}'
@@ -5656,197 +5874,6 @@ classes:
     mixins:
     - Mims
     class_uri: "MIXS:0010007_0016012"
-  Ancient:
-    description: A collection of terms appropriate when collecting samples and sequencing samples  of data containing ancient nucleic acids, i.e., degraded molecules not from living organisms.
-    comments:
-    - This extension that is intended to be used in very specific cases but almost always in conjunction with other MIxS checklists and extensions. It does not therefore (currently) include additional common terms from checklists.
-    title: ancient
-    is_a: Extension
-    slots:
-    - orig_site_name
-    - orig_site_loc
-    - orig_site_lat
-    - orig_site_lon
-    - past_env_broad
-    - past_env_local
-    - stratigraph_context
-    - context_retrieval_date
-    - permit_id
-    - permit_authority
-    - permit_date
-    - permit_scope
-    - biocultural_label
-    - samp_alt_lab_ids
-    - prev_pubs
-    - host_preserv_state
-    - store_cond
-    - samp_preserv_treatm
-    - cultural_era
-    - geological_epoch
-    - earliest_chrono_age
-    - earliest_chrono_sys
-    - latest_chrono_age
-    - latest_chrono_sys
-    - chrono_age_protocol
-    - chrono_age_remarks
-    - palaeopath_status
-    - batch_ids
-    - samp_category
-    - samp_decont_pretreat
-    - damage_treatment
-    - nucl_acid_extr_date
-    - sop_experimental
-    - lib_mid_desc
-    - library_name
-    - lib_polymerase
-    - lib_strandedness
-    - lib_gener_technique
-    - sop_lib_preparation
-    - reamp_pcr_cyc_tot
-    - capt_pcr_cyc_tot
-    - capt_probe_src_taxid
-    - capt_probe_desc
-    - data_preproc_desc
-    - reads_removed_desc
-    slot_usage:
-      orig_site_name:
-        slot_group: Environment
-        rank: 1
-      orig_site_loc:
-        slot_group: Environment
-        rank: 2
-      orig_site_lat:
-        slot_group: Environment
-        rank: 3
-      orig_site_lon:
-        slot_group: Environment
-        rank: 4
-      past_env_broad:
-        slot_group: Environment
-        rank: 5
-      past_env_local:
-        slot_group: Environment
-        rank: 6
-      context_retrieval_date:
-        slot_group: Environment
-        rank: 7
-      stratigraph_context:
-        slot_group: Environment
-        rank: 8
-      permit_id:
-        slot_group: Sample body
-        rank: 9
-      permit_authority:
-        slot_group: Sample body
-        rank: 10
-      permit_date:
-        slot_group: Sample body
-        rank: 11
-      permit_scope:
-        slot_group: Sample body
-        rank: 12
-      biocultural_label:
-        slot_group: Sample body
-        rank: 13
-      samp_alt_lab_ids:
-        slot_group: Sample body
-        rank: 14
-      prev_pubs:
-        slot_group: Sample body
-        rank: 15
-      host_preserv_state:
-        slot_group: Sample body
-        rank: 16
-      store_cond:
-        slot_group: Sample body
-        rank: 17
-      samp_preserv_treatm:
-        slot_group: Sample body
-        rank: 18
-      cultural_era:
-        slot_group: Sample body
-        rank: 19
-      geological_epoch:
-        slot_group: Sample body
-        rank: 20
-      earliest_chrono_age:
-        slot_group: Sample body
-        rank: 21
-      earliest_chrono_sys:
-        slot_group: Sample body
-        rank: 22
-      latest_chrono_age:
-        slot_group: Sample body
-        rank: 23
-      latest_chrono_sys:
-        slot_group: Sample body
-        rank: 24
-      chrono_age_protocol:
-        slot_group: Sample body
-        rank: 25
-      chrono_age_remarks:
-        slot_group: Sample body
-        rank: 26
-      palaeopath_status:
-        slot_group: Sample body
-        rank: 27
-      batch_ids:
-        slot_group: Nucleic acid source
-        rank: 28
-      samp_category:
-        slot_group: Nucleic acid source
-        rank: 29
-      samp_decont_pretreat:
-        slot_group: Nucleic acid source
-        rank: 30
-      nucl_acid_extr_date:
-        slot_group: Nucleic acid source
-        rank: 31
-      sop_experimental:
-        slot_group: Nucleic acid source
-        rank: 32
-      damage_treatment:
-        slot_group: Sequencing
-        rank: 33
-      lib_mid_desc:
-        slot_group: Sequencing
-        rank: 34
-      library_name:
-        slot_group: Sequencing
-        rank: 35
-      lib_polymerase:
-        slot_group: Sequencing
-        rank: 36
-      lib_strandedness:
-        slot_group: Sequencing
-        rank: 37
-      sop_lib_preparation:
-        slot_group: Sequencing
-        rank: 38
-      lib_gener_technique:
-        slot_group: Sequencing
-        rank: 39
-      reamp_pcr_cyc_tot:
-        slot_group: Sequencing
-        rank: 40
-      capt_pcr_cyc_tot:
-        slot_group: Sequencing
-        rank: 41
-      capt_probe_src_taxid:
-        slot_group: Sequencing
-        rank: 42
-      capt_probe_desc:
-        slot_group: Sequencing
-        rank: 43
-      data_preproc_desc:
-        slot_group: Data analysis
-        rank: 44
-      reads_removed_desc:
-        slot_group: Data analysis
-        rank: 45
-    class_uri: "MIXS:9999903"
-    annotations:
-      use_cases: ancient dna samples
   MimsHostAssociatedAncient:
     description: MIxS Data that comply with the Mims checklist, and HostAssociated and Ancient extensions.
     title: MimsHostAssociated combined with Ancient
@@ -5855,7 +5882,7 @@ classes:
     is_a: Ancient
     mixins:
     - MimsHostAssociated
-    class_uri: "MIXS:10007_16002_9999903"
+    class_uri: "MIXS:10007_16002_0016024"
     slots:
     - project_name
     - associated_resource
@@ -5980,7 +6007,7 @@ classes:
     - lib_reads_seqd
     - sop_lib_preparation
     - data_preproc_desc
-    - reads_removed_desc
+    - reads_removed
     - assembly_name
     - assembly_software
     - assembly_qual
@@ -6361,7 +6388,7 @@ classes:
       data_preproc_desc:
         rank: 123
         slot_group: Data analysis
-      reads_removed_desc:
+      reads_removed:
         rank: 124
         slot_group: Data analysis
       assembly_name:
@@ -6402,7 +6429,7 @@ classes:
     is_a: Ancient
     mixins:
     - MimsHumanAssociated
-    class_uri: "MIXS:10007_16003_9999903"
+    class_uri: "MIXS:10007_16003_0016024"
     slots:
     - project_name
     - associated_resource
@@ -6533,7 +6560,7 @@ classes:
     - lib_reads_seqd
     - sop_lib_preparation
     - data_preproc_desc
-    - reads_removed_desc
+    - reads_removed
     - assembly_name
     - assembly_software
     - assembly_qual
@@ -6932,7 +6959,7 @@ classes:
       data_preproc_desc:
         rank: 129
         slot_group: Data analysis
-      reads_removed_desc:
+      reads_removed:
         rank: 130
         slot_group: Data analysis
       assembly_name:
@@ -6973,7 +7000,7 @@ classes:
     is_a: Ancient
     mixins:
     - MimsHumanOral
-    class_uri: "MIXS:10007_16005_9999903"
+    class_uri: "MIXS:10007_16005_0016024"
     slots:
     - project_name
     - associated_resource
@@ -7087,7 +7114,7 @@ classes:
     - lib_reads_seqd
     - sop_lib_preparation
     - data_preproc_desc
-    - reads_removed_desc
+    - reads_removed
     - assembly_name
     - assembly_software
     - number_contig
@@ -7435,7 +7462,7 @@ classes:
       data_preproc_desc:
         rank: 112
         slot_group: Data analysis
-      reads_removed_desc:
+      reads_removed:
         rank: 113
         slot_group: Data analysis
       assembly_name:
@@ -7476,7 +7503,7 @@ classes:
     is_a: Ancient
     mixins:
     - MimsHumanGut
-    class_uri: "MIXS:10007_16004_9999903"
+    class_uri: "MIXS:10007_16004_0016024"
     slots:
     - project_name
     - associated_resource
@@ -7591,7 +7618,7 @@ classes:
     - lib_reads_seqd
     - sop_lib_preparation
     - data_preproc_desc
-    - reads_removed_desc
+    - reads_removed
     - assembly_name
     - assembly_software
     - number_contig
@@ -7942,7 +7969,7 @@ classes:
       data_preproc_desc:
         rank: 113
         slot_group: Data analysis
-      reads_removed_desc:
+      reads_removed:
         rank: 114
         slot_group: Data analysis
       assembly_name:
@@ -7983,7 +8010,7 @@ classes:
     is_a: Ancient
     mixins:
     - MimsHumanSkin
-    class_uri: "MIXS:10007_16006_9999903"
+    class_uri: "MIXS:10007_16006_0016024"
     slots:
     - project_name
     - associated_resource
@@ -8098,7 +8125,7 @@ classes:
     - lib_reads_seqd
     - sop_lib_preparation
     - data_preproc_desc
-    - reads_removed_desc
+    - reads_removed
     - assembly_name
     - assembly_software
     - number_contig
@@ -8449,7 +8476,7 @@ classes:
       data_preproc_desc:
         rank: 113
         slot_group: Data analysis
-      reads_removed_desc:
+      reads_removed:
         rank: 114
         slot_group: Data analysis
       assembly_name:
@@ -8490,7 +8517,7 @@ classes:
     is_a: Ancient
     mixins:
     - MimsSediment
-    class_uri: "MIXS:10007_16011_9999903"
+    class_uri: "MIXS:10007_16011_0016024"
     slots:
     - project_name
     - associated_resource
@@ -8636,7 +8663,7 @@ classes:
     - lib_reads_seqd
     - sop_lib_preparation
     - data_preproc_desc
-    - reads_removed_desc
+    - reads_removed
     - assembly_name
     - assembly_software
     - assembly_qual
@@ -9080,7 +9107,7 @@ classes:
       data_preproc_desc:
         rank: 144
         slot_group: Data analysis
-      reads_removed_desc:
+      reads_removed:
         rank: 145
         slot_group: Data analysis
       assembly_name:
@@ -9121,7 +9148,7 @@ classes:
     is_a: Ancient
     mixins:
     - MimsSoil
-    class_uri: "MIXS:10007_16012_9999903"
+    class_uri: "MIXS:10007_16012_0016024"
     slots:
     - project_name
     - associated_resource
@@ -9253,7 +9280,7 @@ classes:
     - lib_reads_seqd
     - sop_lib_preparation
     - data_preproc_desc
-    - reads_removed_desc
+    - reads_removed
     - assembly_name
     - assembly_software
     - assembly_qual
@@ -9655,7 +9682,7 @@ classes:
       data_preproc_desc:
         rank: 130
         slot_group: Data analysis
-      reads_removed_desc:
+      reads_removed:
         rank: 131
         slot_group: Data analysis
       assembly_name:
@@ -9696,7 +9723,7 @@ classes:
     is_a: Ancient
     mixins:
     - MimsPlantAssociated
-    class_uri: "MIXS:10007_16010_9999903"
+    class_uri: "MIXS:10007_16010_0016024"
     slots:
     - project_name
     - associated_resource
@@ -9847,7 +9874,7 @@ classes:
     - lib_reads_seqd
     - sop_lib_preparation
     - data_preproc_desc
-    - reads_removed_desc
+    - reads_removed
     - assembly_name
     - assembly_software
     - assembly_qual
@@ -10306,7 +10333,7 @@ classes:
       data_preproc_desc:
         rank: 149
         slot_group: Data analysis
-      reads_removed_desc:
+      reads_removed:
         rank: 150
         slot_group: Data analysis
       assembly_name:

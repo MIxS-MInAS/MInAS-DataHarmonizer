@@ -1,5 +1,100 @@
 {
   "mixs-minas": {
+    "Mims": {
+      "name": "Mims",
+      "status": "published",
+      "display": false
+    },
+    "Ancient": {
+      "name": "Ancient",
+      "status": "published",
+      "display": false
+    },
+    "HostAssociated": {
+      "name": "HostAssociated",
+      "status": "published",
+      "display": false
+    },
+    "HumanAssociated": {
+      "name": "HumanAssociated",
+      "status": "published",
+      "display": false
+    },
+    "HumanGut": {
+      "name": "HumanGut",
+      "status": "published",
+      "display": false
+    },
+    "HumanOral": {
+      "name": "HumanOral",
+      "status": "published",
+      "display": false
+    },
+    "HumanSkin": {
+      "name": "HumanSkin",
+      "status": "published",
+      "display": false
+    },
+    "PlantAssociated": {
+      "name": "PlantAssociated",
+      "status": "published",
+      "display": false
+    },
+    "Sediment": {
+      "name": "Sediment",
+      "status": "published",
+      "display": false
+    },
+    "Soil": {
+      "name": "Soil",
+      "status": "published",
+      "display": false
+    },
+    "MixsCompliantData": {
+      "name": "MixsCompliantData",
+      "status": "published",
+      "display": false
+    },
+    "MimsHostAssociated": {
+      "name": "MimsHostAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanAssociated": {
+      "name": "MimsHumanAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanGut": {
+      "name": "MimsHumanGut",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanOral": {
+      "name": "MimsHumanOral",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanSkin": {
+      "name": "MimsHumanSkin",
+      "status": "published",
+      "display": false
+    },
+    "MimsPlantAssociated": {
+      "name": "MimsPlantAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimsSediment": {
+      "name": "MimsSediment",
+      "status": "published",
+      "display": false
+    },
+    "MimsSoil": {
+      "name": "MimsSoil",
+      "status": "published",
+      "display": false
+    },
     "MimsHostAssociatedAncient": {
       "name": "MimsHostAssociatedAncient",
       "status": "published",
