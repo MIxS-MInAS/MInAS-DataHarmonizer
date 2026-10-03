@@ -82,7 +82,7 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
 
   ```bash
   cd web/templates/mixs/minas/
-  MIXS_MINAS_VERSION=1.0.0
+  MIXS_MINAS_VERSION=1.0.1
   curl -o mixs-minas.yaml https://raw.githubusercontent.com/MIxS-MInAS/MInAS/refs/tags/v$MIXS_MINAS_VERSION/src/mixs/schema/mixs-minas.yaml
   ```
 
